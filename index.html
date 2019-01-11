@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Handlebars tutorial</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row-12">
+			<div class="col-6 mx-auto">
+				<div class="character-list-container">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<script id="character-template" type="text/x-handlebars-template">
+		<ul>
+			{{#each characters}}
+			<li>
+				<h2>Name: {{name}}</h2>
+				<p>{{formatName name house.seat}}</p>
+				<p>Actor: {{actor}}</p>
+				{{#if house}}
+				{{!-- <p>House: {{house.name}}</p>
+				<p>Seat: {{house.seat}}</p>
+				<p>Words: {{house.words}}</p>
+				<p>House: {{house.name}}</p> --}}
+				{{#with house}}
+				<p>House: {{name}}</p>
+				<p>Seat:  {{seat}} </p>
+				<p>Words: {{#3timesExcl}}{{words}}{{/3timesExcl}}</p>
+				{{/with}}
+				{{/if}}
+				<p>
+				Location: 
+				{{#if location}}
+					{{location}}
+				{{else if house}}
+					{{house/name}}
+				{{else}} 
+					unknown 
+				{{/if}}
+				</p>
+				<p>Index: {{@index}} First: {{@first}} Last: {{@last}} this: {{@this}}</p>
+				{{#unless location}} <p>Whereabouts are unknown...</p> {{/unless}}
+			</li>
+			{{/each}}
+		</ul>
+		{{>partialExample}}
+	</script>
+
+	<script id="partial-example" type="text/x-handlebars-template">
+		Partial example
+	</script>
+</body>
+<script src="js/polyfill.js"></script>
+<script src="js/handlebars.min.js"></script>
+<script src="js/app.js"></script>
+</html>

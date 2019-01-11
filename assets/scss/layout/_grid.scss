@@ -1,0 +1,46 @@
+$row-width: 1170px;
+.container {
+  max-width: $row-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+$gutter-horizontal: 30px;
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+.row-12 {
+  @include clearfix;
+  margin: 0 auto;
+  [class^='col'] {
+    // background-color: silver;
+    float: left;
+    margin-right: $gutter-horizontal;
+    &:nth-child(12n+12), &:last-child {
+      margin-right: 0px;
+    }
+    
+  }
+  
+  
+    .col-1 {
+      width: calc((100% - #{$gutter-horizontal} * 11) / 12);
+     }
+   @for $i from 2 to 13 {
+    .col-#{$i} {
+      width: calc((100% - #{$gutter-horizontal} * 11) / 12 * #{$i} + #{$gutter-horizontal} * (#{$i} - 1));
+     }
+  }
+}
+
+[class^='col'].ml-auto {
+	float: none;
+	margin-left: auto;
+}
+[class^='col'].mx-auto {
+	float: none;
+	margin:0 auto !important;
+}

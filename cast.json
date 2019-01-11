@@ -1,0 +1,31 @@
+{
+  "characters": [
+    {
+      "name": "Jon Snow",
+      "shortCode": "jon-snow",
+      "actor": "Kit Harrington",
+      "house": {
+        "name": "Stark",
+        "seat": "Winterfell",
+        "words": "Winter is coming"
+      },
+      "location": "The Wall"
+    },
+    {
+      "name": "Tyrion Lanister",
+      "shortCode": "tyrion",
+      "actor": "Peter Dinklage",
+      "house": {
+        "name": "Lanister",
+        "seat": "Casterly Rock",
+        "words": "Hear my roar"
+      }
+    },
+    {
+      "name": "Sandor Clegane",
+      "shortCode": "tyrion",
+      "actor": "Rory McCann",
+      "location": false
+    }
+  ]
+}
